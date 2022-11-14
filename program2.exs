@@ -18,9 +18,9 @@ defmodule M do
     lists
     |> Enum.zip_with(fn [x, y, z] ->
       [x, y, z]
-      |> Enum.reject(&(&1 == []))
+      |> Enum.filter(&is_integer/1)
       |> Enum.filter(&(rem(&1, 2) == 0))
-      |> Enum.reject(&(&1 == []))
+      |> Enum.filter(&is_integer/1)
       |> Enum.max(fn -> 0 end)
     end)
     |> Enum.sum()
